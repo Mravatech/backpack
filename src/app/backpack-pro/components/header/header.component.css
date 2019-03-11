@@ -1,0 +1,210 @@
+img{
+  width: 100%;
+  height: 100%;
+}
+nav a{
+  color: #111111;
+}
+nav .sidenav-trigger{
+  left: 25px;
+  opacity: .5;
+  margin: 0;
+}
+nav .nav-wrapper .bpack_links > li > a i{
+  height: 60px;
+  line-height: 75px;
+}
+/* Backpack Nav Styling */
+.bpack_nav {
+  background: #fff;
+  /* box-shadow: 1px 2px 3px 2px #f3f3f3; */
+  box-shadow: none;
+  border: 1px solid #f3f3f3;
+  padding: 0 2em;
+}
+.bpack_logo{
+  float: left;
+  height: 50px;
+  width: 40px;
+  margin: 4px 10px 4px 0;
+}
+.bpack_nav-brand-wrapper{
+  width: 6%;
+  float: left;
+  height: 100%;
+  padding: 5px 0 5px 2%;
+}
+.bpack_nav ul li > a{
+  color: #111111;
+  text-transform: capitalize;
+  transition: .3s ease-in-out;
+  font-weight: normal;
+  opacity: .6;
+}
+.bpack_nav ul li > a:hover{
+  background: transparent;
+  color: #df6752;
+}
+.close-icon{
+  font-size: 30px;
+}
+.search-icon{
+  color: #df6752 !important;
+}
+
+.bpack_nav-search i.material-icons.close-icon {
+  font-size: 15px;
+  right: 5px;
+}
+.bpack_nav .input-field input{
+  padding-left: 3.2rem !important;
+  font-weight: 100;
+}
+.input-field input[type=search]:focus:not(.browser-default)+label i,
+.input-field input[type=search]:focus:not(.browser-default) ~ .mdi-navigation-close,
+.input-field input[type=search]:focus:not(.browser-default) ~ .material-icons{
+  color: #ccc;
+}
+
+.backpack_user-icon {
+  font-size: 1rem;
+  display: block;
+  cursor: pointer;
+  color: #111111;
+  width: 40px;
+  height: 40px;
+  background: #f3f3f3;
+  margin: 15px 20px 15px 10px;
+  border-radius: 50%;
+  text-align: center;
+}
+.backpack_user-icon i.material-icons {
+  color: #3434;
+  font-size: 2em;
+  line-height: 30px;
+  position: relative;
+  top: 15%;
+}
+.backpack_user-icon img{
+  width: 100%;
+  height: 100%;
+}
+/*  Header Dropdown */
+
+.bpack_profile-dropdown input{
+  border: 2px solid #ccc !important;
+  box-shadow: none !important;
+  padding-left: 15px !important;
+  border-radius: 3px !important;
+  width: 100% !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+.bpack_profile-dropdown input::-webkit-input-placeholder,
+.bpack_profile-dropdown input:-ms-input-placeholder,
+.bpack_profile-dropdown input::placeholder{
+  font-weight: 100;
+  color: #818181;
+  font-size: 10px !important;
+}
+
+.bpack_links{
+  padding-right: 1em;
+}
+
+.close-filter .material-icons{
+  height: 0;
+  line-height: 10px;
+  font-size: 15px;
+}
+.filter-selected ul li span{
+  display: inline-block;
+  margin-left: 10px;
+}
+.filter-selected ul li span:first-child{
+  margin-right: 10px;
+}
+.close-filter{
+  background: #FFFFFF;
+  color: #4A4A4A;
+  padding: 5px;
+  height: 100%;
+  vertical-align: top;
+  float: right;
+  transition: .2s ease-in-out;
+}
+.filter-list {
+  overflow: hidden;
+  color: #FFFFFF !important;
+  border-radius: 3px !important;
+}
+/* .close-filter:hover{
+  z-index: 1;
+  background: #D0021B !im;
+  color: #fff !im;
+} */
+.filter-list{
+  background: #4A4A4A;
+  color: #FFFFFF;
+  border: 2px solid #4A4A4A !important;
+}
+.btn_pro{
+  height: 45px;
+  position: relative;
+  top: -5px;
+  font-size: 15px;
+  padding: 0 20px;
+  right: 10px;
+}
+@media only screen and (min-width: 601px){
+  nav,
+  nav a.sidenav-trigger,
+  nav a.sidenav-trigger i {
+      height: 70px;
+      line-height: 70px;
+  }
+
+  .bpack_nav-search i.material-icons {
+    line-height: 39px;
+    height: 100%;
+  }
+  .bpack_nav-search {
+    background: #ffff;
+    float: left;
+    height: 40px;
+    width: 50%;
+    border: 1px solid #f3f3f3;
+    box-shadow: 2px 2px 5px -2px #f3f3f3;
+    border-radius: 3px;
+    margin: 10px;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .bpack_nav{
+    padding: 0;
+  }
+  .bpack_logo{
+    float: left;
+    height: 45px;
+    width: 35px;
+    margin: 0;
+  }
+  nav .nav-wrapper .bpack_links > li > a i{
+    height: 55px;
+    line-height: 65px;
+  }
+  .backpack_user-icon{
+    font-size: 1rem;
+    display: block;
+    cursor: pointer;
+    color: #111111;
+    width: 40px;
+    height: 40px;
+    background: #f3f3f3;
+    margin: 8px 0 8px 0;
+    border-radius: 50%;
+    text-align: center;
+  }
+}

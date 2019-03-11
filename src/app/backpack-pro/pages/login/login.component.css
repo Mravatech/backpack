@@ -1,0 +1,76 @@
+/*  purple:  #83267E */
+img{
+  width: 100%;
+  height: 100%;
+}
+.login-page {
+    height: 100vh;
+}
+.login-logo {
+  width: 45px;
+  height: 60px;
+  float: left;
+  /* background: #fff; */
+}
+nav {
+    text-align: center;
+    background: #fff;
+    box-shadow: none;
+    border-bottom: 1px solid #ccc;
+    height: 75px;
+    padding: 5px;
+}
+.login_container {
+    width: 350px;
+    position: relative;
+    top: 10%;
+    margin: 5em auto;
+    padding: 20px;
+}
+input.input_class {
+  font-size: 14px !important;
+  color: #848484;
+  font-weight: normal;
+  box-shadow: none !important;
+  border: 2px solid #ccc !important;
+  padding: 0 0 0 8%;
+  border-radius: 3px;
+  height: 40px;
+  width: 90%;
+  margin: 0 0 5px;
+}
+nav .brand-logo {
+  position: relative;
+}
+button{
+  height: 40px;
+  background-color: #83267E;
+  border: none;
+  width: 100%;
+  font-size: 15px;
+  font-weight: 100;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+button:hover{
+
+}
+.form_login_link,
+.input_button{
+  text-align: center;
+  margin: 1em 0;
+}
+.input_button a{
+  font-size: 12px;
+  opacity: .5;
+}
+.form_login_link a,
+.input_button a{
+  color: #4A4A4A;
+}
+.form_login_link{
+  position: relative;
+  top: 3em;
+  font-size: 14px;
+}

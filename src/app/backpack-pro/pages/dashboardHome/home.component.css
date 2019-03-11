@@ -1,0 +1,38 @@
+.content_wrapper {
+  float: left;
+  width: 100%;
+  margin: 1em 0;
+}
+
+.item {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 2px;
+  box-shadow: 1px 2px 3px -1px #f3f3f3;
+  padding: 10px;
+  display: flex;
+  line-height: 10px;
+  color: #979797;
+}
+.item.unread{
+  border: 1px solid #83267E;
+}
+.item span i.material-icons {
+  font-size: 25px;
+  padding: 10px 15px 0 10px;
+}
+.notification-display {
+  width: 85%;
+  padding: 10px;
+}
+.sub-title{
+  width: 85%;
+  float: left;
+  margin-bottom: 20px;
+}
+.sub-title > span {
+  float: right;
+  color: #7a427d;
+  text-transform: capitalize;
+  padding: 5px 0 0;
+}

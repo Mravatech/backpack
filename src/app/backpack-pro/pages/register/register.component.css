@@ -1,0 +1,172 @@
+/*  purple:  #83267E */
+img{
+  width: 100%;
+  height: 100%;
+}
+.login-page {
+    height: 100vh;
+}
+.login-logo {
+  width: 45px;
+  height: 60px;
+  float: left;
+}
+nav {
+    text-align: center;
+    background: #fff;
+    box-shadow: none;
+    border-bottom: 1px solid #ccc;
+    height: 75px;
+    padding: 5px;
+}
+.main_wrapper {
+  width: 100%;
+  margin: auto;
+  min-height: 90%;
+  float: left;
+  text-align: center;
+}
+.login_container {
+  width: 350px;
+  position: relative;
+  margin: 0 auto;
+  padding: 20px;
+}
+.main_wrapper > h5 {
+  width: 30%;
+  margin: auto;
+  padding: 4em 0 0;
+}
+
+span.strong-title {
+  color: #7a427d;
+}
+
+input.input_class {
+  font-size: 14px !important;
+  color: #848484;
+  font-weight: normal;
+  box-shadow: none !important;
+  border: 2px solid #ccc !important;
+  padding: 0 0 0 8%;
+  border-radius: 3px;
+  height: 40px;
+  width: 90%;
+  margin: 0 0 5px;
+}
+nav .brand-logo {
+  position: relative;
+}
+button{
+  height: 46px;
+  background-color: #83267E;
+  border: none;
+  width: 100%;
+  font-size: 15px;
+  font-weight: 100;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+.radio_checkers{
+  width: 100%;
+  float: left;
+  margin-bottom: 10px;
+  text-align: center;
+  position: relative;
+}
+.radio_checkers span i{
+  position: relative;
+  display: block;
+  font-size: 55px;
+  padding: 10px 0 0;
+}
+.radio_checkers span > span{
+  font-size: 12px;
+  font-weight: 100;
+}
+.input-field{
+  position: relative;
+  margin-top: 1rem;
+  margin-bottom: .2rem;
+  width: 100%;
+  float: left;
+  background: #fff;
+}
+label {
+  font-size: 0.8rem;
+  color: #9e9e9e;
+  float: left;
+  width: 47%;
+}
+.radio_checkers > label:first-child {
+  margin-right: 5%;
+}
+[type="radio"]:not(:checked) + span,
+[type="radio"]:checked + span{
+  position: relative;
+  padding-left: 0;
+  cursor: pointer;
+  display: inline-block;
+  min-height: 120px;
+  line-height: 25px;
+  font-size: 1rem;
+  padding: 1em;
+  float: left;
+  width: 100%;
+  margin-bottom: 15px;
+}
+[type="radio"]:not(:checked) + span:before,
+[type="radio"]:not(:checked) + span:after,
+[type="radio"]:checked + span:before,
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:before,
+[type="radio"].with-gap:checked + span:after {
+  border-radius: 3px;
+  float: left;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  transition: none !important;
+}
+[type="radio"]:not(:checked) + span:before,
+[type="radio"]:not(:checked) + span:after {
+    border: 1px solid #9e9e9e;
+}
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:after {
+    background: none !important;
+    border: 2px solid #7a427d;
+}
+
+[type="radio"][_ngcontent-c2]:checked + span[_ngcontent-c2] i,
+[type="radio"][_ngcontent-c2]:checked + span[_ngcontent-c2] span{
+  color: #7a427d;
+}
+@media (max-width: 700px) {
+  .main_wrapper > h5{
+    width: 70%;
+    margin: auto;
+    padding: 2em 0 0;
+    font-size: 15px;
+  }
+  .login_container{
+    width: 310px;
+    position: relative;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  nav .brand-logo {
+    left: 0;
+    -webkit-transform: none;
+    display: block;
+    transform: none;
+  }
+  nav .nav-wrapper {
+    float: left;
+    width: 100%;
+  }
+  span.strong-title {
+    color: #7a427d;
+  }
+}

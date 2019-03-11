@@ -1,0 +1,58 @@
+<header class="navbar-fixed">
+  <nav class="bpack_nav ">
+    <div class="nav-wrapper">
+      <div class="bpack_nav-brand-wrapper">
+        <a href="#!" class="bpack_logo">
+          <img src="assets/img/orangelogo.png" alt="backpack_logo">
+        </a>
+      </div>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="hide-on-med-and-down bpack_links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">activities</a></li>
+        <li><a href="#">Calendar</a></li>
+        <li><a href="#">reviews</a></li>
+        <li><a href="#">help!</a></li>
+      </ul>
+      <ul class="right bpack_links">
+        <li class="hide-on-med-and-down"><button class="btn waves-effect waves-light btn_pro">Add new activity</button></li>
+        <li><a><i class="material-icons">notifications_none</i></a></li>
+        <li><a><i class="material-icons">chat_bubble_outline</i></a></li>
+        <li>
+          <span class="backpack_user-icon" (click)="profileSetting()">
+            <i class="material-icons">person</i>
+            <!-- <img src="../../assets/img/graybag.png" alt=""> -->
+          </span>
+          <profile-dropdown *ngIf="showProfileDrop"></profile-dropdown>
+        </li>
+      </ul>
+    </div>
+    <!-- <div class="filter-container">
+      <div class="filter-selected">
+        <ul>
+          <li class="filter-list">
+            <span (click)="displayFilter()">filter</span>
+            <span *ngIf="isOptions" class="close-filter" (click)="clearFilter()"><i class="material-icons">close</i></span>
+          </li>
+          <li>
+            <span>land</span>
+          </li>
+          <li>
+            <span>sea</span>
+          </li>
+          <li>
+            <span>Water</span>
+          </li>
+        </ul>
+      </div>
+      <filter-activities *ngIf="isOptions"></filter-activities>
+    </div> -->
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="sass.html">my activities</a></li>
+    <li><a href="badges.html">favorite</a></li>
+    <li><a href="collapsible.html">rewards</a></li>
+    <li><a href="mobile.html">backpack pro</a></li>
+  </ul>
+</header>
