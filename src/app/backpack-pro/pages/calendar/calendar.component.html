@@ -1,0 +1,314 @@
+<div class="container-fluid" style="margin-top: 20px">
+  <div class="row">
+    <div class="col l6 m12" style="display:flex">
+      <h6 class="activity">[Activity name displaied] </h6><i class="material-icons arrow-down">
+          expand_more
+          </i>
+    </div> 
+  </div>
+  <div class="row">
+    <div class="col m12 l7">
+      <div class="col l6 m12">
+        <div class="col m6 l12">
+          <i class="material-icons"
+              mwlCalendarPreviousView
+              [view]="view"
+              [(viewDate)]="viewDate"
+              style="vertical-align: middle;">arrow_left</i>
+              <span class="month" style="vertical-align: middle;">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</span>
+              <i 
+              class="btn btn-primary"
+              mwlCalendarNextView
+              [view]="view"
+              [(viewDate)]="viewDate"
+              style="vertical-align: middle;" class=" material-icons">arrow_right</i>
+              <i (click)="decrement()" class="material-icons" style="vertical-align: middle;">arrow_left</i><span class="month" style="vertical-align: middle;">{{ viewDate | calendarDate:(view + 'ViewYear'):'en' }}</span><i  (click)="increment()" style="vertical-align: middle;" class=" material-icons">arrow_right</i><span class="month-year" style="vertical-align: middle; border-bottom: 2px solid #83267E;">Month</span><span class="month-year" style="vertical-align: middle;padding-left: 14px;">Year</span></div>
+      </div>
+    <div class="col m6 l4 tes">
+      <button class="btn but">Booking Sittings</button>
+    </div>    </div>
+
+  </div>
+    <div class="row">
+      <div class="col m12 l7">
+        <ng-template #customCellTemplate let-day="day" let-locale="locale">
+          <div class="cal-cell-top" ng-class="{ cal-disabled: !events.start.includes(day.date) }">
+            <span class="cal-day-number">{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>
+            <span class="cal-day-badge" *ngIf="day.badgeTotal > 0" >
+              <h6 ng-if='events.start.includes(day.date)' class="bookings"> {{ day.events[0]['meta']['number'] }}/ {{ day.events[0]['meta']['total'] }}</h6>{{ day.badgeTotal }}
+            </span> 
+          </div>          
+        </ng-template>
+        <div [ngSwitch]="view">
+          <mwl-calendar-month-view
+            *ngSwitchCase="CalendarView.Month"
+            [viewDate]="viewDate"
+            [events]="events"
+            [refresh]="refresh"
+            (eventTimesChanged)="eventTimesChanged($event)"
+            (beforeViewRender)="beforeMonthViewRender($event)"
+            (dayClicked)="addEvent('input', clickedDate = $event.day.date)"
+            [cellTemplate]="customCellTemplate">
+          </mwl-calendar-month-view>
+        </div>
+      </div>
+      <div class="col m12 l3">
+
+        <div class="select">
+            You can select a spacific date from the calender and set up it’s
+            <span>Availability </span>and <span>Pricing </span>
+        </div>
+        <div class="copy">
+          <div class="row">
+            <mat-form-field class="copy2">
+              <input readonly matInput 
+              mat-raised-button (click)="picker.open()" 
+              [matDatepicker]="picker" placeholder="{{ place() }}"  
+              (dateInput)="addEvent('input', $event)" 
+              [value]="clickedDate">
+              <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle> -->
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="row" *ngIf="datas !== null">
+            <div class="col l12">
+              <div class="con">
+                  <mat-radio-group class="example-radio-group" [(ngModel)]="check">
+
+                <div class="row" style="margin-bottom: 3px;">
+                  <hr class="line-copy">
+                  <div class="col l6">
+                    <span class="avail">Not Available</span>
+                  </div>
+                  <div class="col l6" style="float: right">
+                      <label style="float: right">
+                          <mat-radio-button class="example-radio-button" checked  [value]="0">
+                            
+                          </mat-radio-button>
+                        <span></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="row" style="padding-top: 0px;" style="margin-bottom: 3px;">
+                  <div class="col l6">
+                    <span class="avail">Available</span>
+                  </div>
+                  <div class="col l6" style="float: right">
+                      <label style="float: right">
+                        <mat-radio-button class="example-radio-button"  [value]="1">
+                            
+                        </mat-radio-button>
+                        <span></span>
+                    </label>
+                  </div>
+                </div>
+              </mat-radio-group>
+
+                <div *ngIf="check === 1">
+                  <div class="row">
+                    <hr class="line-copy" style="margin-bottom: 24px;">
+                    <span class="isfor">Is the activity for individual bookings or private groups?</span>
+                    <div class="row" style="margin-top: 16px; margin-bottom: 6px">
+                      <div class="col l6">
+                        <span class="ind">Individuals</span>
+                      </div>
+                      <div class="col l6" style="float: right">
+                        <label style="float: right">
+                          <input type="checkbox" class="filled-in"  />
+                          <span></span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col l6">
+                        <span class="ind">Private Groups</span>
+                      </div>
+                      <div class="col l6" style="float: right">
+                        <label style="float: right">
+                          <input type="checkbox" class="filled-in" />
+                          <span></span>
+                        </label>
+                      </div>
+                    </div>
+                    <hr class="line-copy">
+                  </div>
+                  <div class="row">
+                      <span class="whatstart">What is the start/end day and time?</span>
+                      <div class="row">
+                          <div class="col l12 start">Start</div>
+
+                          <div class="col l5" tsyle="text-align: center">
+                            <div class="set">
+                              <select matNativeControl  name="car">
+                                  <option value="Monday" selected>Monday</option>
+                                  <option value="Tuesday">Tuesday</option>
+                                  <option value="Wednesday">Wednesday</option>
+                                  <option value="Friday">Friday</option>
+                                  <option value="Thursday">Thursday</option>
+                                  <option> </option>
+                                </select>
+                            </div>
+                          </div>
+                          <div class="col l2" style="text-align: center">
+                            <span class="at">at</span>
+                          </div>
+                          <div class="col l5" style="text-align: center">
+                            <div class="set">
+                                <select matNativeControl  name="car">
+                                    <option value="Monday" selected>Monday</option>
+                                    <option value="Tuesday">Tuesday</option>
+                                    <option value="Wednesday">Wednesday</option>
+                                    <option value="Friday">Friday</option>
+                                    <option value="Thursday">Thursday</option>
+                                    <option> </option>
+                                  </select>
+                              </div>
+                          </div>
+                        </div>
+                      <div class="row">
+                          <div class="col l12 start">End</div>
+                        <div class="col l5">
+                          <div class="set">
+                            <select matNativeControl  name="car">
+                                <option value="Monday" selected>Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Friday">Friday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option> </option>
+                              </select>
+                          </div>
+                        </div>
+                        <div class="col l2" style="text-align: center">
+                          <span class="at">at</span>
+                        </div>
+                        <div class="col l5" >
+                          <div class="set">
+                              <select matNativeControl  name="car">
+                                  <option value="Monday" selected>Monday</option>
+                                  <option value="Tuesday">Tuesday</option>
+                                  <option value="Wednesday">Wednesday</option>
+                                  <option value="Friday">Friday</option>
+                                  <option value="Thursday">Thursday</option>
+                                  <option> </option>
+                                </select>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col 12" >
+                            <label style="float: right">
+                              <input type="checkbox" class="filled-in" checked="checked" />
+                              <span class="rep">Repeat every week</span>
+                            </label>
+                          </div>
+                      </div>
+                      <hr class="line-copy">
+                  </div>
+                  <div class="row">
+                    <div class="col l12">
+                      <div class="row">
+                        <span class="price-per">Price per individual</span>
+                      </div>
+                      <div class="row" style="margin-bottom: 7px !important;">
+                          <hr class="line-copy">
+                      </div>
+                      <div class="row" style="margin-bottom: 7px !important;">
+                        <div class="col l6">
+                          <span class="child"><i class="material-icons" style="font-size: 15px; padding-right: 10px">
+                              close
+                              </i>Adult</span>
+                        </div>
+                        <div class="col l6">
+                          <span class="sr">SR 50</span>
+                        </div>
+                      </div>
+                      <div class="row" style="margin-bottom: 7px !important;">
+                        <hr class="line-copy">
+                      </div>
+                      <div class="row" style="margin-bottom: 7px !important;">
+                        <div class="col l6">
+                          <span class="child"><i class="material-icons" style="font-size: 15px; padding-right: 10px">
+                              close
+                              </i>child</span>
+                        </div>
+                        <div class="col l6">
+                          <span class="sr">SR 75</span>
+                        </div>
+                      </div>
+                      <div class="row" style="margin-bottom: 7px !important;">
+                        <hr class="line-copy">
+                      </div>
+                      <div class="row">
+                        <div class="col l6">
+                          <span class="add-ticket">Add ticket type</span>
+                        </div>
+                        <div class="col l6">
+                          <span class="add-ticket" style="float: right">Adult</span>
+                        </div>
+                      </div>
+                      <div class="row" style="margin-bottom: 7px !important;">
+                        <hr class="line-copy">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col l12"><h6 class="pricef">Price for private group</h6></div>
+                    <div class="col l12"><span class="theful"> price of the full activity for one private group.</span></div>
+                    <div class="col l12"><span class="sr-3">SR 3,500</span></div>
+                  </div>
+                  <div class="row">
+                    <hr class="line-copy">
+                  </div>
+                  <div class="row">
+                    <div class="col 12"><h6 class="dis"> Discount </h6></div>
+                  </div>
+                  <div class="row" style="margin-bottom: 7px !important;">
+                    <hr class="line-copy">
+                  </div>
+                  <div class="row">
+                    <div class="col l6">
+                      <span class="avail">Not Available</span>
+                    </div>
+                    <div class="col l6" style="float: right">
+                        <label style="float: right">
+                          <input class="with-gap" name="group1" type="radio"   />
+                          <span></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="row" style="padding-top: 0px;">
+                    <div class="col l6">
+                      <span class="avail">Available</span>
+                    </div>
+                    <div class="col l6" style="float: right">
+                        <label style="float: right">
+                          <input class="with-gap"  name="group1" type="radio"   />
+                          <span></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col l12">
+              <hr class="line-copy">   
+            </div>
+            <div class="container" *ngIf="check === 1">
+              <div class="col l6">
+                <button class="cancel-f">Cancel</button>
+              </div>    
+              <div class="col l6">
+                <button class="btn apply-f">Apply</button>
+              </div>  
+              </div>           
+
+            </div>
+            <!-- <div *ngIf="datas !== null">hello</div> -->
+        </div>
+      </div>
+
+    <!-- Everything you see below is just for the demo, you don't need to include it in your app -->
+
+    <br /><br /><br />
+  </div>
